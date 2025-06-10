@@ -6,9 +6,10 @@ import "react-slideshow-image/dist/styles.css";
 import "react-slideshow-image/dist/styles.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import "react-toastify/dist/ReactToastify.css";
-import { ContextHook } from "./Components/JavaScript/ContextHook";
+
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ContextHook } from "./Components/javascript/ContextHook";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,33 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { MyContext } from "./ContextHook";
-import ProductSkeleton from "../Skeleton/ProductSkeleton";
+import ProductSkeleton from "../skeleton/ProductSkeleton";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 import placeholder from "../Images/placeholder.jpg";
 
 function HomeProduct() {
-  const {
-    productData,
-    setproductTag,
-    categoryData,
-    setcategoryData,
-    cartId,
-    setcartId,
-    loading,setLoading
-  } = useContext(MyContext);
+  const { productData, loading, setLoading } = useContext(MyContext);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
 
     setTimeout(() => {
       setLoading(false);
     }, 900);
   }, []);
   return (
-    <div className="product_container">
-      <div className="container mx-auto p-8 mt-2 text-center lg:mt-8">
+    <div>
+      <div className="container mx-auto p-8 pt-0 mt-2 text-center lg:mt-0">
         <Element name="Products">
-          <h2 className="text-3xl"> Top Collections</h2>
+          <h2 className="text-3xl mb-3 font-semibold"> Top Collections</h2>
           <div className="flex flex-wrap justify-center items-center gap-3 py-8">
             {productData.map(({ title, price, image, id }) => (
               <>
@@ -35,7 +27,7 @@ function HomeProduct() {
                   <ProductSkeleton />
                 ) : (
                   <div
-                    key={title}
+                    key={id + "2"}
                     className="flex flex-col items-center overflow-hidden h-full"
                   >
                     <>
@@ -45,13 +37,13 @@ function HomeProduct() {
                           className="h-[20rem] w-[20rem] object-cover overflow-hidden duration-500 hover:scale-x-110"
                           alt=""
                         />
-                        <div className="mt-3 text-left">
-                          <div className="text-base">
-                            {String(title).slice(0, 20)}
-                          </div>
-                          <div className="text-md font-semibold">${price}</div>
-                        </div>
                       </Link>
+                      <div className="mt-3">
+                        <div className="text-lg font-semibold">
+                          {String(title).slice(0, 20)}
+                        </div>
+                        <div className="text-md">${price}</div>
+                      </div>
                     </>
                   </div>
                 )}

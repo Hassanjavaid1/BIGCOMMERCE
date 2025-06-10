@@ -1,17 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "./ContextHook";
 import { Link, NavLink } from "react-router-dom";
-import ProductSkeleton from "../Skeleton/ProductSkeleton";
-import "../CSS/ProductSkeleton.css";
+import ProductSkeleton from "../skeleton/ProductSkeleton";
+import "../css/ProductSkeleton.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import placeholder from "../Images/placeholder.jpg";
+
 function ProductCategories() {
-  const {
-    productData,
-    loading,
-    setLoading,
-  } = useContext(MyContext);
+  const { productData, loading, setLoading } = useContext(MyContext);
 
   const [categoryType, setCategoryType] = useState([]);
 
@@ -41,7 +38,9 @@ function ProductCategories() {
 
   return (
     <div className="container mx-auto p-8">
-      <h2 className="text-center text-3xl">Category Wise Products</h2>
+      <h2 className="text-center text-3xl font-semibold">
+        All Categories Products
+      </h2>
       <ul className="flex items-center justify-center my-8 border-2 w-fit mx-auto">
         <NavLink
           to={"/BIGCOMMERCE/All"}
@@ -56,14 +55,14 @@ function ProductCategories() {
           className="text-[1.4rem]  px-3 py-[.4rem] transition cursor-pointer"
           onClick={() => handleProductCategory("men's clothing")}
         >
-          Men's Clothing
+          Men's Cloths
         </NavLink>
         <NavLink
           to={"/BIGCOMMERCE/Women-Cloths"}
           className="text-[1.4rem] px-3 py-[.4rem] transition cursor-pointer"
           onClick={() => handleProductCategory("women's clothing")}
         >
-          Women's Clothing
+          Women's Cloth
         </NavLink>
         <NavLink
           to={"/BIGCOMMERCE/Jewelry"}
@@ -98,15 +97,13 @@ function ProductCategories() {
                       className="h-[20rem] w-[20rem] object-cover overflow-hidden duration-500 hover:scale-x-110"
                       alt=""
                     />
-                    <div className="mt-3 text-left">
-                      <div className="text-base">
-                        {String(title).slice(0, 20)}
-                      </div>
-                      <div className="text-md font-semibold">${price}</div>
-                    </div>
                   </Link>
-
-                  <ToastContainer />
+                  <div className="mt-3">
+                    <div className="text-lg font-semibold">
+                      {String(title).slice(0, 20)}
+                    </div>
+                    <div className="text-md">${price}</div>
+                  </div>
                 </>
               </div>
             )}

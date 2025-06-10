@@ -1,6 +1,5 @@
-import React from "react";
 import Skeleton from "react-loading-skeleton";
-import "../CSS/ProductSkeleton.css";
+import "../css/ProductSkeleton.css";
 
 function Detail_Skeleton() {
   return (

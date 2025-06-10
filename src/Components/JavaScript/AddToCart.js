@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+
 import { MyContext } from "./ContextHook";
 import { FaRegWindowClose } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,8 +11,6 @@ function AddToCart() {
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [pQuantity, setPQuantity] = useState({});
-
-  //console.log("pQuanity Initial:", pQuantity);
 
   // Get Data from localStorage.
 
@@ -40,24 +39,19 @@ function AddToCart() {
       [id]: parseInt(inputVal),
     }));
 
-    //console.log("pQuanity onchange:", pQuantity);
-
     updatedTotalPrice(localStorageData);
   };
 
   const updatedTotalPrice = (data) => {
-    console.log("data inside of totalprice", data);
     let newPrice = data.reduce(
       (acc, items) => acc + items.price * (pQuantity[items.id] || 1),
       0
     );
-    console.log("after reduce of updatetotalprice:", newPrice);
     setTotalPrice(newPrice);
-    console.log("newPrice:", newPrice);
   };
 
   const paymentCheckoutClick = () => {
-    toast("This feature is in my todoList.");
+    toast.warning("This feature is in my todoList.");
   };
 
   useEffect(() => {
@@ -70,8 +64,6 @@ function AddToCart() {
     updatedTotalPrice(localStorageData);
   }, [localStorageData]);
 
-  console.log(totalPrice);
-
   return (
     <>
       <div className="container mx-auto p-16 py-24">
@@ -83,10 +75,11 @@ function AddToCart() {
           </div>
         ) : (
           <>
+            <ToastContainer />
             <div className="flex flex-col gap-6">
               {localStorageData.map(({ image, title, price, id, quantity }) => (
                 <div
-                  key={id}
+                  key={id+'1'}
                   className="flex items-center justify-between gap-4"
                 >
                   <div className="flex items-center gap-5">

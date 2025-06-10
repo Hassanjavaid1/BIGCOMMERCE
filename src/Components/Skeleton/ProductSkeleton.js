@@ -1,7 +1,8 @@
-import React from "react";
 import Skeleton from "react-loading-skeleton";
-import "../CSS/ProductSkeleton.css";
+import "../css/ProductSkeleton.css";
+
 function ProductSkeleton() {
+  
   return (
     <>
       <div className="productSkeleton">

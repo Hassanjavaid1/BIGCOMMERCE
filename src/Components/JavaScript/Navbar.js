@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { MyContext } from "./ContextHook";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 function Navbar() {
   const { totalCartItem } = useContext(MyContext);
@@ -21,13 +22,17 @@ function Navbar() {
           <div className="font-semibold text-2xl">
             <Link to="/BIGCOMMERCE">
               <span className="text-blue-600 lg:text-4xl">BIG</span>
-              <span className="lg:text-3xl">COMMERCE</span>
+              <span className="lg:text-4xl">COMMERCE</span>
             </Link>
           </div>
-          <div onClick={handleMenuVisiblity} className="text-2xl lg:hidden">
-            |||
+          <div onClick={handleMenuVisiblity} className="text-3xl lg:hidden">
+            <RxHamburgerMenu />
           </div>
-          <div className={`${menu ? "menuActive" : "hidden"} lg:!flex lg:!flex-row lg:!gap-96 lg:!static lg:!h-fit`}>
+          <div
+            className={`${
+              menu ? "menuActive" : "hidden"
+            } lg:!flex lg:!flex-row lg:!gap-96 lg:!static lg:!h-fit`}
+          >
             <div className="flex flex-col items-center gap-4 text-lg font-semibold lg:flex-row lg:gap-8">
               <Link
                 onClick={handleMenuVisiblity}

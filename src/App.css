@@ -3,10 +3,13 @@ html {
 }
 body {
   overflow-x: hidden;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 body::-webkit-scrollbar {
   background-color: #e4e4e4;
-  width: 0.8rem;
+  width: 0.4rem;
 }
 body::-webkit-scrollbar-thumb {
   background-color: #1e7fff;
@@ -79,7 +82,7 @@ Css pre loader
   color: white;
 }
 
-.menuActive{
+.menuActive {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,11 +97,10 @@ Css pre loader
   gap: 2rem;
 }
 
-
 .react-slideshow-container .nav:last-of-type {
-  right: 25px!important;
+  right: 25px !important;
 }
 
 .react-slideshow-container .nav:first-of-type {
-  left: 25px!important;
+  left: 25px !important;
 }
